@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root { --bg: #ffffff; --text: #333; --btn: #2196F3; --border: #ddd; }
+    [data-theme="dark"] { --bg: #1a1a1a; --text: #f0f0f0; --btn: #0d47a1; --border: #444; }
+
+    body { 
+      width: 250px; padding: 15px; font-family: 'Segoe UI', sans-serif; 
+      background: var(--bg); color: var(--text); transition: 0.3s;
+    }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+    h3 { margin: 0; font-size: 16px; }
+    
+    #tab-title { font-size: 12px; color: var(--btn); margin-bottom: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .info { font-size: 13px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    
+    button { 
+      width: 100%; padding: 12px; cursor: pointer; background: var(--btn); 
+      color: white; border: none; border-radius: 6px; font-weight: bold;
+    }
+    
+    /* Theme Switcher Styling */
+    .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+    .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+    input:checked + .slider { background-color: var(--btn); }
+    input:checked + .slider:before { transform: translateX(20px); }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3>Manga Grabber</h3>
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div id="tab-title">Loading title...</div>
+  
+  <div class="info">
+    Images to download: <span id="img-count">0</span>
+  </div>
+
+  <button id="startBtn">Start Download</button>
+  <script src="popup.js"></script>
+</body>
+</html>
