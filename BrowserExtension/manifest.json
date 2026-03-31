@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Comix Manga Downloader",
+  "version": "1.0",
+  "description": "Downloads manga from Comix website",
+  "permissions": ["downloads", "activeTab"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
