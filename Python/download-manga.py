@@ -52,7 +52,7 @@ def download_manga_slicing(url, folder_name="manga_download"):
     last_slash_index = full_base_src.rfind('/')
     base_url_path = full_base_src[:last_slash_index] # Everything UP TO the last slash
 
-    print(f"Targeting {total_pages} images using path: {base_url_path}\n")
+    print(f"Targeting {total_pages} pages using path: {base_url_path}\n")
 
     # 4. Download Loop
     for i in range(1, total_pages + 1):
@@ -78,8 +78,11 @@ def download_manga_slicing(url, folder_name="manga_download"):
             print(f"Error on page {i}: {e}")
 
     print(f"\nTask Finished! Files in: {os.path.abspath(folder_name)}")
+    print("Created by abhishek-effect\nVisit github.com/abhishek-effect for more")
 
 # --- RUN ---
 print("Welcome to Comix Manga Downloader!\nPlease go to the desired chapter or volume, copy the link such as \'https://comix.to/title/69l57-chainsaw-man/8844787-chapter-232\', and paste it here!")
-target_url = input("Paste URL and press enter: ")
-download_manga_slicing(target_url)
+target_url = None
+while target_url != "Q":
+    target_url = input("Enter Q to quit.\nPaste URL and press enter: ")
+    download_manga_slicing(target_url)
